@@ -36,10 +36,6 @@ $ mvn package docker:build
 $ docker run -p 8080:8080 -t jira-estimate-1.0
 ```
 
-This application offers the following endpoints:
-- GET /issues/\<issue id>
-- GET /issuetypes/\<issue type>
-
 
 ### Getting started using localhost
 1) Ensure Maven is installed: http://maven.apache.org/install.html
@@ -64,6 +60,13 @@ $ mvn package
 ```sh
 $ java -jar target/jira-1.0.jar
 ```
+This application offers the following endpoints:
+- GET /issues/\<issue id>
+- GET /issuetypes/\<issue type>
+
+### Implementation Details
+This was written in Java using the Spring Boot Starter kit. Spring boot was choosen because it was quick to get working out of the box and there is a large reduction of boilerpoint templates (as oppose to Spring MVC). Files/packages are separated into a 3-tier architecture: data, service, and presentation. The data (DAO - data access object) is the provides an abstract interface (IssueDao) to some type of database (IssueDaoImpl). IssueDaoImpl is a mocked up database that is served with sample issue/issuetype responses. The service layer controls the logical part of the application. It talks to the data layer to get the necessary information (issue by id/types). Because there weren't any complex logic, the service layer is small simple. The presentation layer (controller) intercepts the HTTP request and returns a response.
+
 
 ## Total Estimated Points
 At this point whether you ran the application locally or using Docker, the REST api service should be running. Now we can walk the API to get the total estimated points.

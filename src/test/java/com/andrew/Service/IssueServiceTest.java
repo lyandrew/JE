@@ -18,6 +18,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
 public class IssueServiceTest {
+
     @Mock
     private IssueDao issueDao;
 
@@ -27,7 +28,6 @@ public class IssueServiceTest {
 
     @Test
     public void testGetIssuesByType() {
-
         IssueType issueType = new IssueType("/issues/11", "bug", new ArrayList<>(Arrays.asList("/issues/12", "/issues/31", "/issues/52")));
         Mockito.when(issueDao.getIssuesByType("bug")).thenReturn(issueType);
         IssueType testIssue = issueService.getIssuesByType("bug");
@@ -36,12 +36,10 @@ public class IssueServiceTest {
 
     @Test
     public void testGetIssueById() {
-
         Issue issue = new Issue("/issues/11", "bug", "test bug", "6");
         Mockito.when(issueDao.getIssueById("/issues/1")).thenReturn(issue);
         Issue testIssue = issueService.getIssueById("/issues/1");
         assertEquals(testIssue, issue);
     }
-
 
 }

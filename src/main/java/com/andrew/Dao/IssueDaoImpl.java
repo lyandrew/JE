@@ -16,7 +16,9 @@ import java.util.Map;
 @Repository
 @Qualifier("sampleData")
 public class IssueDaoImpl implements IssueDao {
+
     private static Map<String, Issue> issues;
+
     private static Map<String, IssueType> issuesTypes;
 
     IssueDaoImpl() {

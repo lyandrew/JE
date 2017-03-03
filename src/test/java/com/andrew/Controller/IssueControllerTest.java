@@ -47,7 +47,6 @@ public class IssueControllerTest {
                 .andExpect(jsonPath("$.issuetype").value("bug"))
                 .andExpect(jsonPath("$.description").value("test bug"))
                 .andExpect(jsonPath("$.estimate").value("6"));
-
     }
 
     @Test
@@ -67,13 +66,11 @@ public class IssueControllerTest {
                 .andExpect(jsonPath("$.id").value("/issuetypes/bug"))
                 .andExpect(jsonPath("$.name").value("bug"))
                 .andExpect(jsonPath("$.issues").value(arrayList));
-
     }
 
     @Test
     public void testBadGetIssuesByType() throws Exception {
         this.mockMvc.perform(get("/issuetypes/bugy").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
-
     }
 }

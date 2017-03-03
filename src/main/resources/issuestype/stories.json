@@ -1,0 +1,8 @@
+{
+	"id": "/issuetypes/story",
+	"name": "story",
+	"issues": [
+		"/issues/4",
+		"/issues/5"
+	]
+}

@@ -71,7 +71,7 @@ This was written in Java using the Spring Boot Starter kit. Spring boot was choo
 ## Total Estimated Points
 At this point whether you ran the application locally or using Docker, the REST api service should be running. Now we can walk the API to get the total estimated points.
 
-### Prequisite
+### Prerequisite
 - `Requests` Library for python (http://docs.python-requests.org/en/master/)
 
 To get the estimated points for story and bugs we can use the python script in this repository.

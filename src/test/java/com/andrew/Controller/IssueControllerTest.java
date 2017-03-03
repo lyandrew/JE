@@ -52,7 +52,6 @@ public class IssueControllerTest {
 
     @Test
     public void testBadGetIssueById() throws Exception {
-
         this.mockMvc.perform(get("/issues/621").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
     }
@@ -73,8 +72,6 @@ public class IssueControllerTest {
 
     @Test
     public void testBadGetIssuesByType() throws Exception {
-
-
         this.mockMvc.perform(get("/issuetypes/bugy").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isNotFound());
 
